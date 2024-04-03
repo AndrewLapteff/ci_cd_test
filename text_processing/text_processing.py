@@ -1,4 +1,4 @@
-from src.file_reading import read_text_from_file
+from file_reading.file_reading import read_text_from_file
 
 
 def count_words(text: str) -> int:

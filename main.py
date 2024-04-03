@@ -1,4 +1,4 @@
-from src.text_processing import count_words_and_sentences
+from text_processing.text_processing import count_words_and_sentences
 
 file_path = "example.txt"
 num_of_words, num_of_sentences = count_words_and_sentences(file_path)
