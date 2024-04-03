@@ -10,17 +10,29 @@ def read_text_from_file(file_path: str) -> str:
     return text
 
 
-def count(file_path: str) -> tuple[int, int]:
+def count_words(text: str) -> int:
+    """
+    Підраховує кількість слів у тексті.
+
+    :param text: Вхідний текст.
+    :return: Кількість слів у тексті.
+    """
+    words = text.split()
+    return len(words)
+
+
+def count_words_and_sentences(file_path: str) -> tuple[int, int]:
     """
     Підраховує кількість слів та речень у текстовому файлі.
 
     :param file_path: Шлях до текстового файлу.
     :return: Кортеж, що містить кількість слів та речень.
     """
-
     text = read_text_from_file(file_path)
-    print(text)
+    num_words = count_words(text)
+    return num_words
 
 
 file_path = "example.txt"
-count(file_path)
+num_words = count_words_and_sentences(file_path)
+print(f"кількість слів: {num_words}")
