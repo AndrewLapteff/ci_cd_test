@@ -21,6 +21,20 @@ def count_words(text: str) -> int:
     return len(words)
 
 
+def count_sentences(text: str) -> int:
+    """
+    Підраховує кількість речень у тексті.
+
+    :param text: Вхідний текст.
+    :return: Кількість речень у тексті.
+    """
+    sentence_endings = [".", "!", "?", "..."]
+    num_sentences = 0
+    for ending in sentence_endings:
+        num_sentences += text.count(ending)
+    return num_sentences
+
+
 def count_words_and_sentences(file_path: str) -> tuple[int, int]:
     """
     Підраховує кількість слів та речень у текстовому файлі.
@@ -29,10 +43,12 @@ def count_words_and_sentences(file_path: str) -> tuple[int, int]:
     :return: Кортеж, що містить кількість слів та речень.
     """
     text = read_text_from_file(file_path)
-    num_words = count_words(text)
-    return num_words
+    num_of_words = count_words(text)
+    num_of_sentences = count_sentences(text)
+    return num_of_words, num_of_sentences
 
 
 file_path = "example.txt"
-num_words = count_words_and_sentences(file_path)
-print(f"кількість слів: {num_words}")
+num_of_words, num_of_sentences = count_words_and_sentences(file_path)
+print(f"кількість слів: {num_of_words}")
+print(f"кількість реченнь: {num_of_sentences}")
